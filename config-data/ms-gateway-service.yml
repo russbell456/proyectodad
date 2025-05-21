@@ -18,10 +18,10 @@ spring:
         locator:
           enable: true
       routes:
-        - id: rdcm-curso-service
-          uri: lb://rdcm-curso-service
+        - id: pd-cliente-service
+          uri: lb://pd-cliente-service
           predicates:
-            - Path=/cursos/**
+            - Path=/clientes/**
         - id: rdcm-estudiante-service
           uri: lb://rdcm-estudiante-service
           predicates:
