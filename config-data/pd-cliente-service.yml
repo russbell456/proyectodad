@@ -8,8 +8,8 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/pd_cliente?useSSL=false&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: 123456
+    username: appuser
+    password:
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
