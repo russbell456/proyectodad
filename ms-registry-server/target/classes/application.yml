@@ -1,6 +1,6 @@
 spring:
   application:
-    name: rdcm-registry-server
+    name: ms-registry-server
   profiles:
     active: development
   config:
