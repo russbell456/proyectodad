@@ -6,7 +6,7 @@ spring:
     name: pd-cliente-service
 
   datasource:
-    url: jdbc:mysql://localhost:3306/pd-cliente?useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/pd_cliente?useSSL=false&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
