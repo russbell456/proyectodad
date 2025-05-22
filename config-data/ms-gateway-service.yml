@@ -22,10 +22,10 @@ spring:
           uri: lb://pd-cliente-service
           predicates:
             - Path=/clientes/**
-        - id: rdcm-estudiante-service
-          uri: lb://rdcm-estudiante-service
+        - id: ms-producto-service
+          uri: lb://ms-producto-service
           predicates:
-            - Path=/estudiantes/**
+            - Path=/productos/**
         - id: rdcm-matricula-service
           uri: lb://rdcm-matricula-service
           predicates:
