@@ -1,13 +1,11 @@
-package com.example.pdcliente;
+package com.example.mscliente;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PdClienteApplication {
-
+public class MsClienteApplication {
     public static void main(String[] args) {
-        SpringApplication.run(PdClienteApplication.class, args);
+        SpringApplication.run(MsClienteApplication.class, args);
     }
-
 }

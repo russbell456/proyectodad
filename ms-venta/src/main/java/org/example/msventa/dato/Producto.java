@@ -1,15 +1,15 @@
 package org.example.msventa.dato;
 
-public class Estudiante {
+public class Producto {
     private Integer id;
     private String nombre;
     private String carrera;
     private String estado;
     private Integer cicloActual; // Cambiado de 'ciclo' a 'cicloActual'
 
-    public Estudiante() {}
+    public Producto() {}
 
-    public Estudiante(Integer id, String nombre, String carrera, String estado, Integer cicloActual) {
+    public Producto(Integer id, String nombre, String carrera, String estado, Integer cicloActual) {
         this.id = id;
         this.nombre = nombre;
         this.carrera = carrera;

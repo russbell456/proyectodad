@@ -1,10 +1,10 @@
-package com.example.pdcliente;
+package com.example.mscliente;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PdClienteApplicationTests {
+class MsClienteApplicationTests {
 
     @Test
     void contextLoads() {

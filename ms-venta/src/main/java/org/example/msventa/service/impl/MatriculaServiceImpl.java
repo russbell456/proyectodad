@@ -1,9 +1,9 @@
 package org.example.msventa.service.impl;
 
-import org.example.msventa.dato.Curso;
-import org.example.msventa.dato.Estudiante;
+import org.example.msventa.dato.Cliente;
+import org.example.msventa.dato.Producto;
 import org.example.msventa.entity.Matricula;
-import org.example.msventa.entity.MatriculaDetalle;
+import org.example.msventa.entity.VentaDetalle;
 import org.example.msventa.feign.CursoFeign;
 import org.example.msventa.feign.EstudianteFeign;
 import org.example.msventa.repository.MatriculaRepository;
@@ -31,12 +31,12 @@ public class MatriculaServiceImpl implements MatriculaService {
         List<Matricula> matriculas = repository.findAll();
 
         for (Matricula matricula : matriculas) {
-            Estudiante estudiante = estudianteFeign.obtenerPorId(matricula.getEstudianteId()).getBody();
-            matricula.setEstudiante(estudiante);
+            Producto producto = estudianteFeign.obtenerPorId(matricula.getEstudianteId()).getBody();
+            matricula.setEstudiante(producto);
 
-            for (MatriculaDetalle detalle : matricula.getDetalles()) {
-                Curso curso = cursoFeign.obtenerPorId(detalle.getCursoId()).getBody();
-                detalle.setCurso(curso);
+            for (VentaDetalle detalle : matricula.getDetalles()) {
+                Cliente cliente = cursoFeign.obtenerPorId(detalle.getCursoId()).getBody();
+                detalle.setCurso(cliente);
             }
         }
 
@@ -48,12 +48,12 @@ public class MatriculaServiceImpl implements MatriculaService {
         Optional<Matricula> optionalMatricula = repository.findById(id);
 
         optionalMatricula.ifPresent(matricula -> {
-            Estudiante estudiante = estudianteFeign.obtenerPorId(matricula.getEstudianteId()).getBody();
-            matricula.setEstudiante(estudiante);
+            Producto producto = estudianteFeign.obtenerPorId(matricula.getEstudianteId()).getBody();
+            matricula.setEstudiante(producto);
 
-            for (MatriculaDetalle detalle : matricula.getDetalles()) {
-                Curso curso = cursoFeign.obtenerPorId(detalle.getCursoId()).getBody();
-                detalle.setCurso(curso);
+            for (VentaDetalle detalle : matricula.getDetalles()) {
+                Cliente cliente = cursoFeign.obtenerPorId(detalle.getCursoId()).getBody();
+                detalle.setCurso(cliente);
             }
         });
 
@@ -62,16 +62,16 @@ public class MatriculaServiceImpl implements MatriculaService {
 
     @Override
     public Matricula registrar(Matricula matricula) {
-        Estudiante estudiante = estudianteFeign.obtenerPorId(matricula.getEstudianteId()).getBody();
-        if (estudiante == null || !"Activo".equals(estudiante.getEstado())) {
+        Producto producto = estudianteFeign.obtenerPorId(matricula.getEstudianteId()).getBody();
+        if (producto == null || !"Activo".equals(producto.getEstado())) {
             throw new RuntimeException("Estudiante no válido o inactivo");
         }
 
         // Verifica si el estudiante ya se matriculó al curso
-        List<Matricula> matriculasPrevias = repository.findByEstudianteId(estudiante.getId());
-        for (MatriculaDetalle detalleNuevo : matricula.getDetalles()) {
+        List<Matricula> matriculasPrevias = repository.findByEstudianteId(producto.getId());
+        for (VentaDetalle detalleNuevo : matricula.getDetalles()) {
             for (Matricula m : matriculasPrevias) {
-                for (MatriculaDetalle detalleExistente : m.getDetalles()) {
+                for (VentaDetalle detalleExistente : m.getDetalles()) {
                     if (detalleExistente.getCursoId().equals(detalleNuevo.getCursoId())) {
                         throw new RuntimeException("El estudiante ya está matriculado en el curso ID: " + detalleNuevo.getCursoId());
                     }
@@ -79,20 +79,20 @@ public class MatriculaServiceImpl implements MatriculaService {
             }
         }
 
-        matricula.setCiclo(estudiante.getCicloActual());
+        matricula.setCiclo(producto.getCicloActual());
         matricula.setFecha(LocalDate.now());
 
-        for (MatriculaDetalle detalle : matricula.getDetalles()) {
-            Curso curso = cursoFeign.obtenerPorId(detalle.getCursoId()).getBody();
-            if (curso == null || curso.getCapacidad() <= 0) {
+        for (VentaDetalle detalle : matricula.getDetalles()) {
+            Cliente cliente = cursoFeign.obtenerPorId(detalle.getCursoId()).getBody();
+            if (cliente == null || cliente.getCapacidad() <= 0) {
                 throw new RuntimeException("Curso no disponible o sin capacidad");
             }
 
             // Reduce la capacidad en 1
-            curso.setCapacidad(curso.getCapacidad() - 1);
-            cursoFeign.actualizarCurso(curso.getId(), curso);
+            cliente.setCapacidad(cliente.getCapacidad() - 1);
+            cursoFeign.actualizarCurso(cliente.getId(), cliente);
 
-            detalle.setCurso(curso);
+            detalle.setCurso(cliente);
         }
 
         return repository.save(matricula);

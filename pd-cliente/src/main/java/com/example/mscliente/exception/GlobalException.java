@@ -1,4 +1,4 @@
-package com.example.pdcliente.exception;
+package com.example.mscliente.exception;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;

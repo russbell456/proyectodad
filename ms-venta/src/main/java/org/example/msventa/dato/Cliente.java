@@ -1,6 +1,6 @@
 package org.example.msventa.dato;
 
-public class Curso {
+public class Cliente {
     private Integer id;
     private String nombre;
     private String horario;
@@ -8,9 +8,9 @@ public class Curso {
     private String codigo;
     private Integer ciclo;
 
-    public Curso() {}
+    public Cliente() {}
 
-    public Curso(Integer id, String nombre, String horario, Integer capacidad, String codigo, Integer ciclo) {
+    public Cliente(Integer id, String nombre, String horario, Integer capacidad, String codigo, Integer ciclo) {
         this.id = id;
         this.nombre = nombre;
         this.horario = horario;

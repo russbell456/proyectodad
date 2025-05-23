@@ -13,9 +13,9 @@
     </parent>
 
     <groupId>org.example</groupId>
-    <artifactId>pd-cliente</artifactId>
+    <artifactId>ms-cliente</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>pd-cliente</name>
+    <name>ms-cliente</name>
     <description>Microservicio de cliente</description>
 
     <properties>

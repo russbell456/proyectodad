@@ -1,6 +1,6 @@
 package org.example.msventa.feign;
 
-import org.example.msventa.dato.Curso;
+import org.example.msventa.dato.Cliente;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface CursoFeign {
 
     @GetMapping("/{id}")
-    ResponseEntity<Curso> obtenerPorId(@PathVariable Integer id);
+    ResponseEntity<Cliente> obtenerPorId(@PathVariable Integer id);
 
     @PutMapping ("/{id}")
-    ResponseEntity<Curso> actualizarCurso(@PathVariable Integer id, @RequestBody Curso curso);
+    ResponseEntity<Cliente> actualizarCurso(@PathVariable Integer id, @RequestBody Cliente cliente);
 }
