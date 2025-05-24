@@ -115,6 +115,4 @@ public class Cliente {
     public void setFechaRegistro(LocalDateTime fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
-
-    // Getters y setters omitidos por brevedad
 }

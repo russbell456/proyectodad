@@ -1,4 +1,4 @@
-package org.example.msventa.exception;
+package org.example.msventas.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +20,4 @@ public class GlobalExceptionHandler {
         error.put("message", ex.getMessage());
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
-
-    // Puedes agregar más capturas específicas si usas tus propias excepciones
 }

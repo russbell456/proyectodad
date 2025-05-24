@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1f579410-01dc-4245-b9c4-6f099f4d55b9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../config-data/ms-venta-service.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/controller/VentaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/repository/VentaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/VentaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/impl/VentaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-cliente/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-cliente/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-cliente/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/src/main/java/com/example/mscliente/MsClienteApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-cliente/src/main/java/com/example/mscliente/MsClienteApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/src/main/java/com/example/mscliente/controller/ClienteController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/src/main/java/com/example/mscliente/entity/Cliente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/src/main/java/com/example/mscliente/exception/GlobalException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/src/main/java/com/example/mscliente/repository/ClienteRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/src/main/java/com/example/mscliente/service/ClienteService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/src/main/java/com/example/mscliente/service/impl/ClienteServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/src/main/java/com/example/mscliente/util/ClienteSeeder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-cliente/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-usuario/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-usuario/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-usuario/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-usuario/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/.idea/ms-usuario.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-usuario/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-usuario/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-usuario/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/src/main/java/com/example/msproducto/MsProductoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-usuario/src/main/java/com/example/msusuario/MsUsuarioApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/src/main/java/com/example/msproducto/config/OpenApiConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-usuario/src/main/java/com/example/msusuario/config/OpenApiConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/src/main/java/com/example/msproducto/controller/ProductoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/src/main/java/com/example/msproducto/entity/Producto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/src/main/java/com/example/msproducto/repository/ProductoRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/src/main/java/com/example/msproducto/service/ProductoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/src/main/java/com/example/msproducto/service/impl/ProductoServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/src/main/java/com/example/msproducto/util/ProductoSeeder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-usuario/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/src/test/java/com/example/msproducto/MsProductoApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-usuario/src/test/java/com/example/msusuario/MsUsuarioApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-usuario/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/target/classes/com/example/msproducto/MsProductoApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/target/classes/com/example/msproducto/config/OpenApiConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/target/classes/com/example/msproducto/controller/ProductoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/target/classes/com/example/msproducto/entity/Producto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/target/classes/com/example/msproducto/repository/ProductoRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/target/classes/com/example/msproducto/service/ProductoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/target/classes/com/example/msproducto/service/impl/ProductoServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-usuario/target/classes/com/example/msproducto/util/ProductoSeeder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/controller/MatriculaController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/dato/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/dato/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/dato/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/dato/Producto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/feign/CursoFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/feign/ProductoFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/feign/EstudianteFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/feign/ClienteFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/repository/MatriculaRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/MatriculaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/impl/MatriculaServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pd-cliente/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/contacloud/pdinventario/PdInventarioApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/contacloud/pdinventario/controller/MovimientoStockController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/contacloud/pdinventario/controller/ProductoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/contacloud/pdinventario/model/MovimientoStock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/contacloud/pdinventario/model/Producto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/contacloud/pdinventario/repository/MovimientoStockRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/contacloud/pdinventario/repository/ProductoRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/contacloud/pdinventario/service/MovimientoStockService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/contacloud/pdinventario/service/ProductoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/contacloud/pdinventario/PdInventarioApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2xJgiLjWZs0LeZ2LNJmQP43EtBu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "E:/oficial examen dad 2025/proyectodad/pd-inventario",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "spring.configuration.checksum": "f6feaa11bf15b90f15d8500692be2a2a",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="PdInventarioApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="pd-inventario" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.contacloud.pdinventario.PdInventarioApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1f579410-01dc-4245-b9c4-6f099f4d55b9" name="Changes" comment="" />
+      <created>1747661716603</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1747661716603</updated>
+      <workItem from="1747661717678" duration="3851000" />
+      <workItem from="1747831872899" duration="685000" />
+      <workItem from="1748037943135" duration="59000" />
+      <workItem from="1748038115826" duration="1176000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

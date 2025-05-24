@@ -1,11 +1,11 @@
-package com.example.mscliente;
+package com.example.msusuario;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MsClienteApplication {
+public class MsUsuarioApplication {
     public static void main(String[] args) {
-        SpringApplication.run(MsClienteApplication.class, args);
+        SpringApplication.run(MsUsuarioApplication.class, args);
     }
 }
