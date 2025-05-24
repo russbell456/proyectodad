@@ -1,6 +1,6 @@
 spring:
   application:
-    name: pd-cliente-service
+    name: ms-usuario-service
   profiles:
     active: development
   config:
