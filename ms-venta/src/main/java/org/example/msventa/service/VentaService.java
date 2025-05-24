@@ -1,7 +1,6 @@
 package org.example.msventa.service;
 
 import org.example.msventa.entity.Venta;
-
 import java.util.List;
 import java.util.Optional;
 

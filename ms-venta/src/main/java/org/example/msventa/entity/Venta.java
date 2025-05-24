@@ -10,12 +10,13 @@ public class Venta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private Integer clienteId;
     private Integer trabajadorId;
     private LocalDate fechaVenta;
     private Double total;
-    private String origen;
-    private String estado;
+    private String origen; // "CLIENTE" o "TRABAJADOR"
+    private String estado; // "PAGADA", "PENDIENTE"
 
     @Transient
     private Cliente cliente;
@@ -106,5 +107,4 @@ public class Venta {
     public void setObservacion(String observacion) {
         this.observacion = observacion;
     }
-// Getters y Setters
 }

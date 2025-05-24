@@ -2,12 +2,12 @@ package org.example.msventa.entity;
 
 import jakarta.persistence.*;
 import org.example.msventa.dato.Producto;
-
 @Entity
 public class VentaDetalle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private Integer productoId;
     private Integer cantidad;
     private Double precioUnitario;
@@ -63,6 +63,4 @@ public class VentaDetalle {
     public void setProducto(Producto producto) {
         this.producto = producto;
     }
-
-    // Getters y Setters
 }

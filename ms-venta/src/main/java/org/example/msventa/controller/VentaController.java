@@ -1,8 +1,8 @@
 package org.example.msventa.controller;
 
-import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.example.msventa.entity.Venta;
 import org.example.msventa.service.VentaService;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,8 +13,7 @@ import java.util.List;
 @RequestMapping("/ventas")
 public class VentaController {
 
-    @Autowired
-    private VentaService ventaService;
+    @Autowired private VentaService ventaService;
 
     @GetMapping
     public ResponseEntity<List<Venta>> listar() {
@@ -22,17 +21,15 @@ public class VentaController {
     }
 
     @GetMapping("/{id}")
-    @CircuitBreaker(name = "ventaListarPorIdCB", fallbackMethod = "fallbackVentaPorId")
+    @CircuitBreaker(name = "ventaCB", fallbackMethod = "fallbackVenta")
     public ResponseEntity<Venta> obtener(@PathVariable Integer id) {
-        return ventaService.obtener(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+        return ventaService.obtener(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
-    public ResponseEntity<Venta> fallbackVentaPorId(Integer id, Throwable throwable) {
+    public ResponseEntity<Venta> fallbackVenta(Integer id, Throwable throwable) {
         Venta fallback = new Venta();
-        fallback.setId(999);
-        fallback.setObservacion("No se pudo obtener la venta. Servicio no disponible.");
+        fallback.setId(0);
+        fallback.setObservacion("Venta no disponible temporalmente.");
         return ResponseEntity.ok(fallback);
     }
 

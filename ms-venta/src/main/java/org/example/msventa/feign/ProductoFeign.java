@@ -3,12 +3,9 @@ package org.example.msventa.feign;
 import org.example.msventa.dato.Producto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
-@FeignClient(name = "ms-producto-service", path = "/productos")
+@FeignClient(name = "ms-producto", path = "/productos")
 public interface ProductoFeign {
     @GetMapping("/{id}")
     ResponseEntity<Producto> obtenerPorId(@PathVariable Integer id);

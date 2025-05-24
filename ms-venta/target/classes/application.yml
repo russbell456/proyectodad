@@ -1,6 +1,6 @@
 spring:
   application:
-    name: rdcm-matricula-service
+    name: ms-facturacion-service
   profiles:
     active: development
   config:
