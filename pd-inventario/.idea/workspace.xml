@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f579410-01dc-4245-b9c4-6f099f4d55b9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../ms-usuario/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-usuario/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-cliente/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/target/classes/com/example/msproducto/MsProductoApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/target/classes/com/example/msproducto/config/OpenApiConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/target/classes/com/example/msproducto/controller/ProductoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/target/classes/com/example/msproducto/entity/Producto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/target/classes/com/example/msproducto/repository/ProductoRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/target/classes/com/example/msproducto/service/ProductoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/target/classes/com/example/msproducto/service/impl/ProductoServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-cliente/target/classes/com/example/msproducto/util/ProductoSeeder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/feign/ClienteFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/feign/ClienteFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/feign/ProductoFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/feign/ProductoFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

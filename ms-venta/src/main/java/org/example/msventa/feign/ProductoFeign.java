@@ -5,7 +5,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient(name = "ms-producto", path = "/productos")
+@FeignClient(name = "ms-producto-service", path = "/productos")
 public interface ProductoFeign {
     @GetMapping("/{id}")
     ResponseEntity<Producto> obtenerPorId(@PathVariable Integer id);
