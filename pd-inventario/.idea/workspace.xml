@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1f579410-01dc-4245-b9c4-6f099f4d55b9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../ms-venta/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/MsVentaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/MsVentaApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/config/OpenAPIConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/config/OpenApiConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/controller/VentaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/controller/VentaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/dato/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/dato/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/dato/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/dato/Producto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/entity/Venta.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/entity/Venta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/entity/VentaDetalle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/entity/VentaDetalle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/feign/ClienteFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/feign/ClienteFeign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/feign/ProductoFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/feign/ProductoFeign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/repository/VentaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/repository/VentaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/VentaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/VentaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/impl/VentaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/impl/VentaServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1f579410-01dc-4245-b9c4-6f099f4d55b9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

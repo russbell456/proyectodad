@@ -26,9 +26,13 @@ spring:
           uri: lb://ms-producto-service
           predicates:
             - Path=/productos/**
-        - id: rdcm-matricula-service
-          uri: lb://rdcm-matricula-service
+        - id: ms-venta-service
+          uri: lb://ms-venta-service
           predicates:
-            - Path=/matriculas/**
+            - Path=/ventas/**
+        - id: ms-usuario-service
+          uri: lb://ms-usuario-service
+          predicates:
+            - Path=/usuarios/**
 
 
