@@ -5,20 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f579410-01dc-4245-b9c4-6f099f4d55b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../config-data/ms-pagos-service.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/dto/PagoRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/exception/RecursoNoEncontradoException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/feign/VentaDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/feign/VentaFeign.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/storage/StorageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/storage/impl/LocalStorageServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/controller/VentaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/controller/VentaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/entity/Venta.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/entity/Venta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/entity/VentaDetalle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/entity/VentaDetalle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/repository/VentaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/repository/VentaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/VentaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/VentaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/dto/DetalleVentaDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/dto/ProductoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/feign/ProductoFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/controller/PagoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/controller/PagoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/feign/VentaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/dto/VentaDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/feign/VentaFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/feign/VentaFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/service/PagoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/service/PagoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/service/impl/PagoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/service/impl/PagoServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/impl/VentaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/impl/VentaServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>

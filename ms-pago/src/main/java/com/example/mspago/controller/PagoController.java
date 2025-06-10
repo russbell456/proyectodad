@@ -3,7 +3,7 @@ package com.example.mspago.controller;
 import com.example.mspago.dto.PagoRequest;
 import com.example.mspago.entity.Pago;
 import com.example.mspago.service.PagoService;
-import com.example.mspago.feign.VentaDTO;
+import com.example.mspago.dto.VentaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,5 @@
 package com.example.mspago.feign;
+import com.example.mspago.dto.VentaDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

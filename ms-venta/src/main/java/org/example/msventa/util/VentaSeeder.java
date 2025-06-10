@@ -11,7 +11,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class VentaSeeder implements CommandLineRunner {
-
     private final VentaRepository ventaRepository;
 
     public VentaSeeder(VentaRepository ventaRepository) {
@@ -21,7 +20,10 @@ public class VentaSeeder implements CommandLineRunner {
     @Override
     public void run(String... args) {
         if (ventaRepository.count() == 0) {
-            // Detalle 1: venta hecha por TRABAJADOR
+
+            // ========================
+            // Venta hecha por TRABAJADOR
+            // ========================
             VentaDetalle d1 = new VentaDetalle();
             d1.setProductoId(1);
             d1.setCantidad(2);
@@ -35,15 +37,17 @@ public class VentaSeeder implements CommandLineRunner {
             d2.setSubtotal(300.0);
 
             Venta venta1 = new Venta();
-            venta1.setClienteId(1);          // cliente existente
-            venta1.setTrabajadorId(1);       // trabajador que atendió
+            venta1.setClienteId(1);
+            venta1.setTrabajadorId(1);
             venta1.setFechaVenta(LocalDate.now());
             venta1.setTotal(1300.0);
             venta1.setOrigen("TRABAJADOR");
-            venta1.setEstado("PAGADA");
+            venta1.setEstado("SIN_PAGAR");
             venta1.setDetalles(Arrays.asList(d1, d2));
 
-            // Detalle 2: venta hecha desde el FRONTEND del CLIENTE
+            // ========================
+            // Venta hecha por CLIENTE (desde frontend)
+            // ========================
             VentaDetalle d3 = new VentaDetalle();
             d3.setProductoId(3);
             d3.setCantidad(1);
@@ -51,19 +55,19 @@ public class VentaSeeder implements CommandLineRunner {
             d3.setSubtotal(750.0);
 
             Venta venta2 = new Venta();
-            venta2.setClienteId(2);          // cliente que compra online
-            venta2.setTrabajadorId(null);    // nadie lo atendió directamente
+            venta2.setClienteId(2);
+            venta2.setTrabajadorId(null);
             venta2.setFechaVenta(LocalDate.now());
             venta2.setTotal(750.0);
             venta2.setOrigen("CLIENTE");
-            venta2.setEstado("PAGADA");
+            venta2.setEstado("SIN_PAGAR");
             venta2.setDetalles(List.of(d3));
 
             // Guardamos ambas ventas
             ventaRepository.save(venta1);
             ventaRepository.save(venta2);
 
-            System.out.println("✅ Ventas de ejemplo registradas correctamente.");
+            System.out.println("✅ Ventas de ejemplo registradas con estado SIN_PAGAR.");
         } else {
             System.out.println("ℹ️ Ya existen ventas registradas, seeder omitido.");
         }

@@ -94,8 +94,8 @@ public class VentaServiceImpl implements VentaService {
             }
 
             // descuento de stock
-            producto.setStock(producto.getStock() - detalle.getCantidad());
-            productoFeign.actualizarProducto(producto.getId(), producto);
+            //producto.setStock(producto.getStock() - detalle.getCantidad());
+            //productoFeign.actualizarProducto(producto.getId(), producto);
 
             // precios
             detalle.setPrecioUnitario(producto.getPrecioUnitario());

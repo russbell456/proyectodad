@@ -1,4 +1,6 @@
-package com.example.mspago.feign;
+package com.example.mspago.dto;
+
+import java.util.List;
 
 /** DTO interno (solo lo que necesitamos) */
 public class VentaDTO {
@@ -7,6 +9,7 @@ public class VentaDTO {
     private String origen;   // CLIENTE | TRABAJADOR
     private String estado;   // SIN_PAGAR | PAGADA
     private Double total;
+    private List<DetalleVentaDTO> detalles;
 
     public Long getId() {
         return id;
@@ -46,5 +49,13 @@ public class VentaDTO {
 
     public void setTotal(Double total) {
         this.total = total;
+    }
+
+    public List<DetalleVentaDTO> getDetalles() {
+        return detalles;
+    }
+
+    public void setDetalles(List<DetalleVentaDTO> detalles) {
+        this.detalles = detalles;
     }
 }
