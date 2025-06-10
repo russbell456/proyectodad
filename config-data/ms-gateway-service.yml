@@ -38,5 +38,9 @@ spring:
           uri: lb://ms-pago-service
           predicates:
             - Path=/pagos/**
+        - id: ms-facturacion-service
+          uri: lb://ms-facturacion-service
+          predicates:
+            - Path=/facturas/**
 
 

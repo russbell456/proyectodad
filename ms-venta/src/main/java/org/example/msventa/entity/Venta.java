@@ -20,7 +20,7 @@ public class Venta {
     private Double total;
 
     /**  “CLIENTE” | “TRABAJADOR”  */
-    @Column(nullable = false, columnDefinition = "VARCHAR(20) DEFAULT 'CLIENTE'")
+    @Column(nullable = fa   lse, columnDefinition = "VARCHAR(20) DEFAULT 'CLIENTE'")
     private String origen;
 
     /**  “SIN_PAGAR” | “PAGADA”  */
