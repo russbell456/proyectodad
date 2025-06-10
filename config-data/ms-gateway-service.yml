@@ -34,5 +34,9 @@ spring:
           uri: lb://ms-usuario-service
           predicates:
             - Path=/usuarios/**
+        - id: ms-pago-service
+          uri: lb://ms-pago-service
+          predicates:
+            - Path=/pagos/**
 
 

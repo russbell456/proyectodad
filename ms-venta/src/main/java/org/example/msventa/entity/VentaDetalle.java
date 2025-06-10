@@ -63,4 +63,7 @@ public class VentaDetalle {
     public void setProducto(Producto producto) {
         this.producto = producto;
     }
+
+    public void setVenta(Venta venta) {
+    }
 }

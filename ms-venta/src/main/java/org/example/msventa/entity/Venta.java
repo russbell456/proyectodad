@@ -6,18 +6,26 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@Table(name = "venta")
 public class Venta {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private Integer clienteId;
-    private Integer trabajadorId;
+    private Integer trabajadorId;          // nullable
+
     private LocalDate fechaVenta;
     private Double total;
-    private String origen; // "CLIENTE" o "TRABAJADOR"
-    private String estado; // "PAGADA", "PENDIENTE"
 
+    /**  “CLIENTE” | “TRABAJADOR”  */
+    @Column(nullable = false, columnDefinition = "VARCHAR(20) DEFAULT 'CLIENTE'")
+    private String origen;
+
+    /**  “SIN_PAGAR” | “PAGADA”  */
+    @Column(nullable = false, columnDefinition = "VARCHAR(20) DEFAULT 'SIN_PAGAR'")
+    private String estado;
     @Transient
     private Cliente cliente;
 

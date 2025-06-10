@@ -49,28 +49,63 @@ public class VentaServiceImpl implements VentaService {
         });
         return venta;
     }
+    @Override
+    public List<Venta> pendientes(Integer clienteId) {
+        return ventaRepository.findByClienteIdAndEstado(clienteId, "SIN_PAGAR");
+    }
+
+    @Override
+    public void marcarPagada(Integer id) {
+        Venta v = ventaRepository.findByIdAndEstado(id, "SIN_PAGAR")
+                .orElseThrow(() -> new RuntimeException("Venta no encontrada o ya pagada"));
+        v.setEstado("PAGADA");
+        ventaRepository.save(v);
+    }
 
     @Override
     public Venta registrar(Venta venta) {
+
+        // 1. validar cliente
         Cliente cliente = clienteFeign.obtenerPorId(venta.getClienteId()).getBody();
         if (cliente == null || !Boolean.TRUE.equals(cliente.getEstado())) {
             throw new RuntimeException("Cliente no válido o inactivo");
         }
+
+        // 2. origen por defecto
+        if (venta.getOrigen() == null || venta.getOrigen().isBlank()) {
+            venta.setOrigen("CLIENTE");
+        }
+
+        // 3. si la venta la crea un trabajador → debe traer trabajadorId
+        if ("TRABAJADOR".equalsIgnoreCase(venta.getOrigen()) && venta.getTrabajadorId() == null) {
+            throw new RuntimeException("Se requiere trabajadorId para ventas de origen TRABAJADOR");
+        }
+
+        // 4. estado inicial → SIN_PAGAR
+        venta.setEstado("SIN_PAGAR");
         venta.setFechaVenta(LocalDate.now());
-        venta.setEstado("PAGADA");
+
         double total = 0.0;
         for (VentaDetalle detalle : venta.getDetalles()) {
+
             Producto producto = productoFeign.obtenerPorId(detalle.getProductoId()).getBody();
             if (producto == null || producto.getStock() < detalle.getCantidad()) {
                 throw new RuntimeException("Producto sin stock: ID " + detalle.getProductoId());
             }
+
+            // descuento de stock
             producto.setStock(producto.getStock() - detalle.getCantidad());
             productoFeign.actualizarProducto(producto.getId(), producto);
 
+            // precios
             detalle.setPrecioUnitario(producto.getPrecioUnitario());
             detalle.setSubtotal(producto.getPrecioUnitario() * detalle.getCantidad());
             total += detalle.getSubtotal();
+
+            // vincular detalle → venta (por cascada)
+            detalle.setVenta(venta);
         }
+
         venta.setTotal(total);
         return ventaRepository.save(venta);
     }

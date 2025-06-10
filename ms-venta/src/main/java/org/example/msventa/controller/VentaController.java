@@ -43,4 +43,15 @@ public class VentaController {
         ventaService.eliminar(id);
         return ResponseEntity.noContent().build();
     }
+    @GetMapping("/pendientes/{clienteId}")
+    public ResponseEntity<List<Venta>> pendientes(@PathVariable Integer clienteId) {
+        return ResponseEntity.ok(ventaService.pendientes(clienteId));
+    }
+
+    /** 🔹 Marca la venta como PAGADA (lo invoca ms‑pago al finalizar un cobro) */
+    @PutMapping("/{id}/marcar-pagada")
+    public ResponseEntity<Void> marcarPagada(@PathVariable Integer id) {
+        ventaService.marcarPagada(id);
+        return ResponseEntity.ok().build();
+    }
 }
