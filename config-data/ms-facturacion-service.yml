@@ -1,19 +1,22 @@
 spring:
   application:
-    name: rdcm-matricula-service
+    name: ms-facturacion-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/ms-matricula
-    username: postgres
-    password: 123456
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:mysql://localhost:3306/ms-facturacion
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: false
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
 
 server:
+  #port: 8081
   port: ${PORT:${SERVER_PORT:0}}
 
 springdoc:
@@ -26,21 +29,15 @@ springdoc:
 eureka:
   client:
     serviceUrl:
-      #defaultZone: http://localhost:8090/eureka
-      defaultZone: ${EUREKA_URI:http://localhost:8090/eureka}
+      defaultZone:
+        ${EUREKA_URI:http://localhost:8090/eureka}
+      #http://localhost:8090/eureka
   instance:
+    instance-id:
+    ${spring:
+      application:
+        name}:${spring:
+          application:
+            instance_id:${random:
+              value}}:
     #hostname: localhost
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-
-
-resilience4j.circuitbreaker:
-  instances:
-    matriculaListarPorIdCB:
-      registerHealthIndicator: true
-      slidingWindowSize: 10
-      permittedNumberOfCallsInHalfOpenState: 3
-      slidingWindowType: TIME_BASED
-      minimumNumberOfCalls: 4
-      waitDurationInOpenState: 5s
-      failureRateThreshold: 50
-      eventConsumerBufferSize: 10

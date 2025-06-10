@@ -1,6 +1,7 @@
 package org.example.msventa.repository;
 
 import org.example.msventa.entity.Venta;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

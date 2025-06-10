@@ -5,15 +5,64 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f579410-01dc-4245-b9c4-6f099f4d55b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/dto/DetalleVentaDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/dto/ProductoDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/feign/ProductoFeign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/controller/PagoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/controller/PagoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/feign/VentaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/dto/VentaDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/feign/VentaFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/feign/VentaFeign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/service/PagoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/service/PagoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/service/impl/PagoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/service/impl/PagoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/impl/VentaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/impl/VentaServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/config/EmisorProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/dato/DatosClienteDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/dato/FacturaDetalleDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/dato/FacturaRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config-data/ms-facturacion-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../config-data/ms-facturacion-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-facturacion/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-facturacion/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-facturacion/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/HELP.md" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-facturacion/HELP.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-facturacion/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-facturacion/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-facturacion/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/MsFacturacionApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/MsFacturacionApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/config/OpenAPIConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/config/OpenAPIConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/controller/MatriculaController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/dato/Curso.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/dato/Estudiante.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/entity/Matricula.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/entity/MatriculaDetalle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/feign/CursoFeign.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/feign/EstudianteFeign.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/repository/MatriculaRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/service/MatriculaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/service/impl/MatriculaServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-facturacion/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/test/java/org/example/msfacturacion/MsFacturacionApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-facturacion/src/test/java/org/example/msfacturacion/MsFacturacionApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-facturacion/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/target/classes/org/example/rdcmmatricula/MsMatriculaApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/target/classes/org/example/rdcmmatricula/config/OpenAPIConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/target/classes/org/example/rdcmmatricula/controller/MatriculaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/target/classes/org/example/rdcmmatricula/dato/Curso.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/target/classes/org/example/rdcmmatricula/dato/Estudiante.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/target/classes/org/example/rdcmmatricula/entity/Matricula.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/target/classes/org/example/rdcmmatricula/entity/MatriculaDetalle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/target/classes/org/example/rdcmmatricula/exception/GlobalExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/target/classes/org/example/rdcmmatricula/feign/CursoFeign.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/target/classes/org/example/rdcmmatricula/feign/EstudianteFeign.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/target/classes/org/example/rdcmmatricula/repository/MatriculaRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/target/classes/org/example/rdcmmatricula/service/MatriculaService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/target/classes/org/example/rdcmmatricula/service/impl/MatriculaServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pago/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-pago/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pago/target/classes/com/example/msproducto/MsProductoApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pago/target/classes/com/example/msproducto/config/OpenApiConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pago/target/classes/com/example/msproducto/controller/ProductoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pago/target/classes/com/example/msproducto/entity/Producto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pago/target/classes/com/example/msproducto/repository/ProductoRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pago/target/classes/com/example/msproducto/service/ProductoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pago/target/classes/com/example/msproducto/service/impl/ProductoServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pago/target/classes/com/example/msproducto/util/ProductoSeeder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/controller/VentaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/controller/VentaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/repository/VentaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/repository/VentaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/controller/VentaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/controller/VentaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/entity/Venta.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/entity/Venta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/entity/VentaDetalle.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/entity/VentaDetalle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/repository/VentaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/repository/VentaRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/service/VentaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/service/VentaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/service/impl/VentaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/service/impl/VentaServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/util/VentaSeeder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/util/VentaSeeder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
