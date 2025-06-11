@@ -31,6 +31,11 @@ public class VentaController {
     public ResponseEntity<List<Venta>> listar() {
         return ResponseEntity.ok(ventaService.listar());
     }
+    @GetMapping("/pagadas/{clienteId}")
+    public ResponseEntity<List<Venta>> pagadas(@PathVariable Integer clienteId) {
+        return ResponseEntity.ok(ventaService.pagadas(clienteId));
+    }
+
 
     @GetMapping("/{id}")
     @CircuitBreaker(name = "ventaCB", fallbackMethod = "fallbackVenta")

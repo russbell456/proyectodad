@@ -26,18 +26,18 @@ public class FacturaServiceImpl implements FacturaService {
     private final FacturaRepository facturaRepo;
     private final EmisorProperties emisor;
 
-    /* ===== Método 1: listar ventas pagadas de un cliente ===== */
+    // ===== Método 1: listar ventas pagadas de un cliente =====
     @Override
     public List<VentaDTO> ventasPagadas(Long clienteId) {
         return ventaFeign.pagadas(clienteId).getBody();
     }
 
-    /* ===== Método 2: emitir una factura con varias ventas ===== */
+    // ===== Método 2: emitir una factura con varias ventas =====
     @Override
     @Transactional
     public FacturaDTO emitir(FacturaRequest req) {
 
-        /* 1. Traer ventas y filtrar solo PAGADAS */
+        // 1. Traer ventas y filtrar solo PAGADAS
         List<VentaDTO> ventas = req.getVentasIds().stream()
                 .map(id -> ventaFeign.obtener(id).getBody())
                 .filter(v -> "PAGADA".equals(v.getEstado()))
@@ -45,17 +45,17 @@ public class FacturaServiceImpl implements FacturaService {
 
         if (ventas.isEmpty()) throw new RuntimeException("No hay ventas válidas");
 
-        /* 2. Validar que todas pertenecen al mismo cliente */
+        // 2. Validar que todas pertenecen al mismo cliente
         Long clienteId = ventas.get(0).getClienteId();
         boolean mismoCliente = ventas.stream()
                 .allMatch(v -> v.getClienteId().equals(clienteId));
         if (!mismoCliente)
             throw new RuntimeException("Todas las ventas deben ser del mismo cliente");
 
-        /* 3. Datos del cliente */
+        // 3. Datos del cliente
         DatosClienteDTO cliente = clienteFeign.obtener(clienteId).getBody();
 
-        /* 4. Construir entidad Factura */
+        // 4. Construir entidad Factura
         Factura factura = new Factura();
         factura.setNumeroFactura(generarSerieCorrelativo());
         factura.setFechaEmision(LocalDate.now());
@@ -67,7 +67,7 @@ public class FacturaServiceImpl implements FacturaService {
         factura.setRucDniCliente(cliente.getRucDni());
         factura.setNombreCliente(cliente.getNombre());
 
-        /* Detalles y totales */
+        // Detalles y totales
         double subTotal = 0;
         List<FacturaDetalle> detalles = new ArrayList<>();
 
@@ -83,6 +83,7 @@ public class FacturaServiceImpl implements FacturaService {
                 fd.setSubtotal(dv.getSubtotal());
                 fd.setIgv(dv.getSubtotal() * 0.18);
                 fd.setTotalLinea(dv.getSubtotal() * 1.18);
+                fd.setFactura(factura); // 🔑 establecer relación
                 subTotal += dv.getSubtotal();
                 detalles.add(fd);
             }
@@ -93,17 +94,17 @@ public class FacturaServiceImpl implements FacturaService {
         factura.setTotal(subTotal * 1.18);
         factura.setDetalles(detalles);
 
-        /* 5. Guardar factura */
+        // 5. Guardar factura
         facturaRepo.save(factura);
 
-        /* 6. Marcar ventas como FACTURADAS */
+        // 6. Marcar ventas como FACTURADAS
         ventas.forEach(v -> ventaFeign.facturar(v.getId()));
 
-        /* 7. Regresar DTO */
+        // 7. Retornar DTO
         return mapperToDTO(factura);
     }
 
-    /* ===== Método 3: listar facturas por cliente ===== */
+    // ===== Método 3: listar facturas por cliente =====
     @Override
     public List<FacturaDTO> listarPorCliente(Long clienteId) {
         return facturaRepo.findByClienteId(clienteId)
@@ -112,16 +113,14 @@ public class FacturaServiceImpl implements FacturaService {
                 .toList();
     }
 
-    /* ---------- Helpers ---------- */
+    // ---------- Helpers ----------
 
     private static final AtomicLong SEQ = new AtomicLong(1);
 
-    /** Genera serie y correlativo simple: F001-00000001, F001-00000002 ... */
     private String generarSerieCorrelativo() {
         return "F001-" + String.format("%08d", SEQ.getAndIncrement());
     }
 
-    /** Convierte entidad a DTO (rellena lo que necesites) */
     private FacturaDTO mapperToDTO(Factura f) {
         FacturaDTO dto = new FacturaDTO();
         dto.setId(f.getId());
@@ -135,7 +134,7 @@ public class FacturaServiceImpl implements FacturaService {
         dto.setTotalImpuestos(f.getTotalImpuestos());
         dto.setTotal(f.getTotal());
 
-        // convertir detalles
+        // Detalles
         List<FacturaDetalleDTO> detalleDTOs = f.getDetalles().stream().map(d -> {
             FacturaDetalleDTO dd = new FacturaDetalleDTO();
             dd.setDescripcion(d.getDescripcion());
@@ -148,7 +147,7 @@ public class FacturaServiceImpl implements FacturaService {
         }).toList();
         dto.setItems(detalleDTOs);
 
-        // cliente embebido
+        // Cliente embebido
         DatosClienteDTO cli = new DatosClienteDTO();
         cli.setId(f.getClienteId());
         cli.setRucDni(f.getRucDniCliente());

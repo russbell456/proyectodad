@@ -53,6 +53,10 @@ public class VentaServiceImpl implements VentaService {
     public List<Venta> pendientes(Integer clienteId) {
         return ventaRepository.findByClienteIdAndEstado(clienteId, "SIN_PAGAR");
     }
+    @Override
+    public List<Venta> pagadas(Integer clienteId) {
+        return ventaRepository.findByClienteIdAndEstado(clienteId, "PAGADA");
+    }
 
     @Override
     public void marcarPagada(Integer id) {

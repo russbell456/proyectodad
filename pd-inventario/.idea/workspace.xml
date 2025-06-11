@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f579410-01dc-4245-b9c4-6f099f4d55b9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../config-data/ms-gateway-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../config-data/ms-gateway-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/entity/FacturaDetalle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/entity/FacturaDetalle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/feign/ClienteFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/feign/ClienteFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/service/impl/FacturaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/service/impl/FacturaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-facturacion/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/controller/VentaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/controller/VentaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/entity/Venta.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/entity/Venta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/VentaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/VentaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/impl/VentaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/impl/VentaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/controller/VentaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/controller/VentaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/service/VentaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/service/VentaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/service/impl/VentaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/service/impl/VentaServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
