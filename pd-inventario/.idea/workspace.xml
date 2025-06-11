@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f579410-01dc-4245-b9c4-6f099f4d55b9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../config-data/ms-pago-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../config-data/ms-pago-service.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/entity/FacturaDetalle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/entity/FacturaDetalle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/entity/Venta.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/entity/Venta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/entity/VentaDetalle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/entity/VentaDetalle.java" afterDir="false" />
