@@ -72,4 +72,10 @@ public class VentaController {
         });
         return ResponseEntity.noContent().build();
     }
+    @PutMapping("/{id}/marcar-pagada")
+    public ResponseEntity<Void> marcarPagada(@PathVariable Integer id) {
+        ventaService.marcarPagada(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }

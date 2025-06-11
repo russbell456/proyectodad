@@ -20,42 +20,38 @@ import java.util.concurrent.atomic.AtomicLong;
 @Service
 @RequiredArgsConstructor
 public class FacturaServiceImpl implements FacturaService {
-
     private final VentaFeign ventaFeign;
     private final ClienteFeign clienteFeign;
     private final FacturaRepository facturaRepo;
     private final EmisorProperties emisor;
 
-    // ===== Método 1: listar ventas pagadas de un cliente =====
+    private static final AtomicLong SEQ = new AtomicLong(1);
+
+    // Método 1: listar ventas pagadas por cliente
     @Override
     public List<VentaDTO> ventasPagadas(Long clienteId) {
         return ventaFeign.pagadas(clienteId).getBody();
     }
 
-    // ===== Método 2: emitir una factura con varias ventas =====
+    // Método 2: emitir factura
     @Override
     @Transactional
     public FacturaDTO emitir(FacturaRequest req) {
-
-        // 1. Traer ventas y filtrar solo PAGADAS
         List<VentaDTO> ventas = req.getVentasIds().stream()
                 .map(id -> ventaFeign.obtener(id).getBody())
-                .filter(v -> "PAGADA".equals(v.getEstado()))
+                .filter(v -> "PAGADA".equalsIgnoreCase(v.getEstado()))
                 .toList();
 
         if (ventas.isEmpty()) throw new RuntimeException("No hay ventas válidas");
 
-        // 2. Validar que todas pertenecen al mismo cliente
         Long clienteId = ventas.get(0).getClienteId();
         boolean mismoCliente = ventas.stream()
                 .allMatch(v -> v.getClienteId().equals(clienteId));
         if (!mismoCliente)
             throw new RuntimeException("Todas las ventas deben ser del mismo cliente");
 
-        // 3. Datos del cliente
         DatosClienteDTO cliente = clienteFeign.obtener(clienteId).getBody();
 
-        // 4. Construir entidad Factura
         Factura factura = new Factura();
         factura.setNumeroFactura(generarSerieCorrelativo());
         factura.setFechaEmision(LocalDate.now());
@@ -64,10 +60,9 @@ public class FacturaServiceImpl implements FacturaService {
         factura.setFormaPago(req.getFormaPago());
         factura.setMedioPago(req.getMedioPago());
         factura.setClienteId(clienteId);
-        factura.setRucDniCliente(cliente.getRucDni());
-        factura.setNombreCliente(cliente.getNombre());
+        factura.setRucDniCliente(cliente.getNumeroDocumento());
+        factura.setNombreCliente(cliente.getNombres() + " " + cliente.getApellidos());
 
-        // Detalles y totales
         double subTotal = 0;
         List<FacturaDetalle> detalles = new ArrayList<>();
 
@@ -83,7 +78,7 @@ public class FacturaServiceImpl implements FacturaService {
                 fd.setSubtotal(dv.getSubtotal());
                 fd.setIgv(dv.getSubtotal() * 0.18);
                 fd.setTotalLinea(dv.getSubtotal() * 1.18);
-                fd.setFactura(factura); // 🔑 establecer relación
+                fd.setFactura(factura); // relación inversa
                 subTotal += dv.getSubtotal();
                 detalles.add(fd);
             }
@@ -94,34 +89,24 @@ public class FacturaServiceImpl implements FacturaService {
         factura.setTotal(subTotal * 1.18);
         factura.setDetalles(detalles);
 
-        // 5. Guardar factura
         facturaRepo.save(factura);
-
-        // 6. Marcar ventas como FACTURADAS
         ventas.forEach(v -> ventaFeign.facturar(v.getId()));
 
-        // 7. Retornar DTO
-        return mapperToDTO(factura);
+        return convertirADTO(factura);
     }
 
-    // ===== Método 3: listar facturas por cliente =====
+    // Método 3: listar facturas por cliente
     @Override
     public List<FacturaDTO> listarPorCliente(Long clienteId) {
         return facturaRepo.findByClienteId(clienteId)
                 .stream()
-                .map(this::mapperToDTO)
+                .map(this::convertirADTO)
                 .toList();
     }
 
-    // ---------- Helpers ----------
-
-    private static final AtomicLong SEQ = new AtomicLong(1);
-
-    private String generarSerieCorrelativo() {
-        return "F001-" + String.format("%08d", SEQ.getAndIncrement());
-    }
-
-    private FacturaDTO mapperToDTO(Factura f) {
+    // Nuevo: convertir entidad Factura a DTO (para PDF y controller)
+    @Override
+    public FacturaDTO convertirADTO(Factura f) {
         FacturaDTO dto = new FacturaDTO();
         dto.setId(f.getId());
         dto.setNumeroFactura(f.getNumeroFactura());
@@ -134,7 +119,6 @@ public class FacturaServiceImpl implements FacturaService {
         dto.setTotalImpuestos(f.getTotalImpuestos());
         dto.setTotal(f.getTotal());
 
-        // Detalles
         List<FacturaDetalleDTO> detalleDTOs = f.getDetalles().stream().map(d -> {
             FacturaDetalleDTO dd = new FacturaDetalleDTO();
             dd.setDescripcion(d.getDescripcion());
@@ -147,7 +131,6 @@ public class FacturaServiceImpl implements FacturaService {
         }).toList();
         dto.setItems(detalleDTOs);
 
-        // Cliente embebido
         DatosClienteDTO cli = new DatosClienteDTO();
         cli.setId(f.getClienteId());
         cli.setRucDni(f.getRucDniCliente());
@@ -155,5 +138,9 @@ public class FacturaServiceImpl implements FacturaService {
         dto.setCliente(cli);
 
         return dto;
+    }
+
+    private String generarSerieCorrelativo() {
+        return "F001-" + String.format("%08d", SEQ.getAndIncrement());
     }
 }

@@ -1,18 +1,17 @@
 package org.example.msfacturacion.dato;
 public class DatosClienteDTO {
     private Long id;
-    private String rucDni;
-    private String nombre;
+    private String nombres;
+    private String apellidos;
+    private String tipoDocumento;
+    private String numeroDocumento;
+    private String correo;
     private String direccion;
     private String telefono;
-    private String email;
-
+    private String rucDni;  // ← agregado para compatibilidad con factura
+    private String nombre;
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getRucDni() {
@@ -31,6 +30,50 @@ public class DatosClienteDTO {
         this.nombre = nombre;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+
+    public String getNumeroDocumento() {
+        return numeroDocumento;
+    }
+
+    public void setNumeroDocumento(String numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
     public String getDireccion() {
         return direccion;
     }
@@ -45,13 +88,5 @@ public class DatosClienteDTO {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 }
