@@ -6,11 +6,11 @@ import jakarta.persistence.*;
 @Table(name = "factura_detalle")
 public class FacturaDetalle {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long ventaId;
+    private Long facturaId;
+    private Long ventaId;          // traqueo a la venta original
     private Long productoId;
 
     private String descripcion;
@@ -21,16 +21,20 @@ public class FacturaDetalle {
     private Double igv;
     private Double totalLinea;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "factura_id", nullable = false)
-    private Factura factura; // Relación con la entidad padre
-
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getFacturaId() {
+        return facturaId;
+    }
+
+    public void setFacturaId(Long facturaId) {
+        this.facturaId = facturaId;
     }
 
     public Long getVentaId() {
@@ -112,4 +116,8 @@ public class FacturaDetalle {
     public void setFactura(Factura factura) {
         this.factura = factura;
     }
+
+    @ManyToOne
+    @JoinColumn(name = "factura_id", insertable = false, updatable = false)
+    private Factura factura;
 }

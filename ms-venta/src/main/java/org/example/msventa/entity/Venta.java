@@ -2,6 +2,7 @@ package org.example.msventa.entity;
 
 import jakarta.persistence.*;
 import org.example.msventa.dato.Cliente;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -14,27 +15,29 @@ public class Venta {
     private Integer id;
 
     private Integer clienteId;
-    private Integer trabajadorId;          // nullable
+    private Integer trabajadorId;      // puede ser null
 
     private LocalDate fechaVenta;
     private Double total;
 
-    /**  “CLIENTE” | “TRABAJADOR”  */
+    /**  CLIENTE | TRABAJADOR  */
     @Column(nullable = false, columnDefinition = "VARCHAR(20) DEFAULT 'CLIENTE'")
     private String origen;
 
-    /**  “SIN_PAGAR” | “PAGADA”  */
+    /**  SIN_PAGAR | PAGADA | FACTURADA  */
     @Column(nullable = false, columnDefinition = "VARCHAR(20) DEFAULT 'SIN_PAGAR'")
     private String estado;
+
+    /* ---------- Campos auxiliares ---------- */
     @Transient
     private Cliente cliente;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "venta_id")
-    private List<VentaDetalle> detalles;
-
     @Transient
     private String observacion;
+
+    /* ---------- Relación con detalles ---------- */
+    @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<VentaDetalle> detalles;
 
     public Integer getId() {
         return id;
@@ -100,14 +103,6 @@ public class Venta {
         this.cliente = cliente;
     }
 
-    public List<VentaDetalle> getDetalles() {
-        return detalles;
-    }
-
-    public void setDetalles(List<VentaDetalle> detalles) {
-        this.detalles = detalles;
-    }
-
     public String getObservacion() {
         return observacion;
     }
@@ -115,4 +110,14 @@ public class Venta {
     public void setObservacion(String observacion) {
         this.observacion = observacion;
     }
+
+    public List<VentaDetalle> getDetalles() {
+        return detalles;
+    }
+
+    public void setDetalles(List<VentaDetalle> detalles) {
+        this.detalles = detalles;
+    }
+    /* ---------- Getters y Setters ---------- */
+    /* ... (idénticos a los que ya tenías) ... */
 }

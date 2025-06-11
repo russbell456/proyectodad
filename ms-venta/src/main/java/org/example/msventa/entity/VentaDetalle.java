@@ -2,8 +2,11 @@ package org.example.msventa.entity;
 
 import jakarta.persistence.*;
 import org.example.msventa.dato.Producto;
+
 @Entity
+@Table(name = "venta_detalle")
 public class VentaDetalle {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -15,6 +18,11 @@ public class VentaDetalle {
 
     @Transient
     private Producto producto;
+
+    /* ---------- Relación MANY‑TO‑ONE con Venta ---------- */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "venta_id", nullable = false)
+    private Venta venta;
 
     public Integer getId() {
         return id;
@@ -64,6 +72,11 @@ public class VentaDetalle {
         this.producto = producto;
     }
 
+    public Venta getVenta() {
+        return venta;
+    }
+
     public void setVenta(Venta venta) {
+        this.venta = venta;
     }
 }
