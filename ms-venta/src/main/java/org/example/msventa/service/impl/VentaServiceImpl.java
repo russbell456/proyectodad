@@ -10,6 +10,7 @@ import org.example.msventa.repository.VentaRepository;
 import org.example.msventa.service.VentaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -49,10 +50,12 @@ public class VentaServiceImpl implements VentaService {
         });
         return venta;
     }
+
     @Override
     public List<Venta> pendientes(Integer clienteId) {
         return ventaRepository.findByClienteIdAndEstado(clienteId, "SIN_PAGAR");
     }
+
     @Override
     public List<Venta> pagadas(Integer clienteId) {
         return ventaRepository.findByClienteIdAndEstado(clienteId, "PAGADA");
@@ -91,27 +94,29 @@ public class VentaServiceImpl implements VentaService {
 
         double total = 0.0;
         for (VentaDetalle detalle : venta.getDetalles()) {
-
             Producto producto = productoFeign.obtenerPorId(detalle.getProductoId()).getBody();
             if (producto == null || producto.getStock() < detalle.getCantidad()) {
                 throw new RuntimeException("Producto sin stock: ID " + detalle.getProductoId());
             }
 
-            // descuento de stock
-            //producto.setStock(producto.getStock() - detalle.getCantidad());
-            //productoFeign.actualizarProducto(producto.getId(), producto);
-
-            // precios
             detalle.setPrecioUnitario(producto.getPrecioUnitario());
             detalle.setSubtotal(producto.getPrecioUnitario() * detalle.getCantidad());
             total += detalle.getSubtotal();
 
-            // vincular detalle → venta (por cascada)
-            detalle.setVenta(venta);
+            detalle.setVenta(venta); // vinculación
         }
 
         venta.setTotal(total);
-        return ventaRepository.save(venta);
+        Venta ventaGuardada = ventaRepository.save(venta);
+
+        // 🔁 enriquecer con cliente y productos
+        ventaGuardada.setCliente(cliente);
+        for (VentaDetalle d : ventaGuardada.getDetalles()) {
+            Producto producto = productoFeign.obtenerPorId(d.getProductoId()).getBody();
+            d.setProducto(producto);
+        }
+
+        return ventaGuardada;
     }
 
     @Override

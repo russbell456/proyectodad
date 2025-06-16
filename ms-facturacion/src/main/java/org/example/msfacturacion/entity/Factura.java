@@ -137,6 +137,6 @@ public class Factura {
         this.detalles = detalles;
     }
 
-    @OneToMany(mappedBy = "factura", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "factura", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<FacturaDetalle> detalles;
 }

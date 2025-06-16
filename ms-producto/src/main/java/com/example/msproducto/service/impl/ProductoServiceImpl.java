@@ -38,9 +38,22 @@
 
         @Override
         public Producto actualizar(Long id, Producto producto) {
-            producto.setId(id);
-            return productoRepository.save(producto);
+            Producto original = productoRepository.findById(id)
+                    .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+
+            if (producto.getNombre() != null) original.setNombre(producto.getNombre());
+            if (producto.getDescripcion() != null) original.setDescripcion(producto.getDescripcion());
+            if (producto.getCategoria() != null) original.setCategoria(producto.getCategoria());
+            if (producto.getPrecioUnitario() != null) original.setPrecioUnitario(producto.getPrecioUnitario());
+            if (producto.getStock() != null) original.setStock(producto.getStock());
+            if (producto.getStockMinimo() != null) original.setStockMinimo(producto.getStockMinimo());
+            if (producto.getImagenUrl() != null) original.setImagenUrl(producto.getImagenUrl());
+            if (producto.getEstado() != null) original.setEstado(producto.getEstado());
+
+            return productoRepository.save(original);
         }
+
+
 
         @Override
         public void eliminar(Long id) {

@@ -1,5 +1,6 @@
 package com.example.msproducto.controller;
 
+import com.example.msproducto.dto.ProductoStockDTO;
 import com.example.msproducto.entity.Producto;
 import com.example.msproducto.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,7 @@ public class ProductoController {
         Producto actualizado = productoService.actualizar(id, producto);
         return new ResponseEntity<>(actualizado, HttpStatus.OK);
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarProducto(@PathVariable Long id) {

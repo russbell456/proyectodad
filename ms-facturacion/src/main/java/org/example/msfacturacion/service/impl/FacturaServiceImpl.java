@@ -80,6 +80,7 @@ public class FacturaServiceImpl implements FacturaService {
                 fd.setTotalLinea(dv.getSubtotal() * 1.18);
                 fd.setFactura(factura); // relación inversa
                 subTotal += dv.getSubtotal();
+
                 detalles.add(fd);
             }
         }

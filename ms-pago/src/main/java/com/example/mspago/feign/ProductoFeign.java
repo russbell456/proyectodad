@@ -13,4 +13,5 @@ public interface ProductoFeign {
 
     @PutMapping("/{id}")
     ResponseEntity<ProductoDTO> actualizar(@PathVariable Long id, @RequestBody ProductoDTO productoDto);
+
 }

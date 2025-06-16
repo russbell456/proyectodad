@@ -17,6 +17,7 @@ public interface ProductoService {
 
     void eliminar(Long id);
 
+
     boolean existePorNombre(String nombre);
     // Validación de DNI único
 }

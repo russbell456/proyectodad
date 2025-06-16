@@ -1,5 +1,6 @@
 package org.example.msventa.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.example.msventa.dato.Producto;
 
@@ -19,11 +20,10 @@ public class VentaDetalle {
     @Transient
     private Producto producto;
 
-    /* ---------- Relación MANY‑TO‑ONE con Venta ---------- */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "venta_id", nullable = false)
+    @JsonIgnore  // 🚫 evita ciclo infinito en la serialización
     private Venta venta;
-
     public Integer getId() {
         return id;
     }

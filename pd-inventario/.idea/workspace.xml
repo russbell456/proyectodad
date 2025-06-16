@@ -5,12 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f579410-01dc-4245-b9c4-6f099f4d55b9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../config-data/ms-pago-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../config-data/ms-pago-service.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend-microservicios/src/api/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend-microservicios/src/plugins/vuetify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend-microservicios/src/router/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend-microservicios/src/views/Clientes.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/dto/ProductoStockDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ms-producto/src/main/java/com/example/msproducto/dto/ProductoStockDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/dato/FacturaDetalleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/dato/FacturaDetalleDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/entity/Factura.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/entity/Factura.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/entity/FacturaDetalle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/entity/FacturaDetalle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/service/impl/FacturaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-facturacion/src/main/java/org/example/msfacturacion/service/impl/FacturaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/feign/ProductoFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/feign/ProductoFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-producto/src/main/java/com/example/msproducto/controller/ProductoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-producto/src/main/java/com/example/msproducto/controller/ProductoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-producto/src/main/java/com/example/msproducto/service/ProductoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-producto/src/main/java/com/example/msproducto/service/ProductoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-producto/src/main/java/com/example/msproducto/service/impl/ProductoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-producto/src/main/java/com/example/msproducto/service/impl/ProductoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-producto/target/classes/com/example/msproducto/controller/ProductoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-producto/target/classes/com/example/msproducto/controller/ProductoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-producto/target/classes/com/example/msproducto/service/impl/ProductoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-producto/target/classes/com/example/msproducto/service/impl/ProductoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/entity/Venta.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/entity/Venta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/entity/VentaDetalle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/entity/VentaDetalle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/impl/VentaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/impl/VentaServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/entity/Venta.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/entity/Venta.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/entity/VentaDetalle.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/entity/VentaDetalle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/service/impl/VentaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/target/classes/org/example/msventa/service/impl/VentaServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,6 +98,7 @@
       <workItem from="1748037943135" duration="59000" />
       <workItem from="1748038115826" duration="1176000" />
       <workItem from="1749525114246" duration="1209000" />
+      <workItem from="1750082220366" duration="590000" />
     </task>
     <servers />
   </component>

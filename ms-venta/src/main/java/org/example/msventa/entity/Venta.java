@@ -36,8 +36,10 @@ public class Venta {
     private String observacion;
 
     /* ---------- Relación con detalles ---------- */
-    @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<VentaDetalle> detalles;
+
+
 
     public Integer getId() {
         return id;

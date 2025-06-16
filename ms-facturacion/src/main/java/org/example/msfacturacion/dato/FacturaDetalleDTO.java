@@ -10,6 +10,18 @@ public class FacturaDetalleDTO {
     private Double subtotal;
     private Double igv;
     private Double totalLinea;
+    private Long ventaId;
+
+
+    public Long getVentaId() {
+        return ventaId;
+    }
+
+    public void setVentaId(Long ventaId) {
+        this.ventaId = ventaId;
+    }
+
+
 
     public String getDescripcion() {
         return descripcion;
