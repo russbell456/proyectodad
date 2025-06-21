@@ -22,8 +22,9 @@ public class PagoServiceImpl implements PagoService {
     @Autowired private StorageService storageService;
     @Override
     public List<VentaDTO> ventasPendientes(Long clienteId) {
-        return ventaFeign.listarPendientes(clienteId).getBody();
+        return ventaFeign.listarPendientes(clienteId.intValue()).getBody();
     }
+
     @Override
     public Pago registrar(PagoRequest r, MultipartFile archivo) {
 

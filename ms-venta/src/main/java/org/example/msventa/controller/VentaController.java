@@ -44,6 +44,11 @@ public class VentaController {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+    @GetMapping("/pendientes/{clienteId}")
+    public ResponseEntity<List<Venta>> pendientes(@PathVariable Integer clienteId) {
+        return ResponseEntity.ok(ventaService.pendientes(clienteId));
+    }
+
 
     public ResponseEntity<Venta> fallbackVenta(Integer id, Throwable throwable) {
         Venta fallback = new Venta();

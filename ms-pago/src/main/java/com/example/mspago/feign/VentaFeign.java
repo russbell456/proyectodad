@@ -10,7 +10,8 @@ import java.util.List;
 public interface VentaFeign {
 
     @GetMapping("/pendientes/{clienteId}")
-    ResponseEntity<List<VentaDTO>> listarPendientes(@PathVariable Long clienteId);
+    ResponseEntity<List<VentaDTO>> listarPendientes(@PathVariable Integer clienteId);
+
 
     @GetMapping("/{id}")
     ResponseEntity<VentaDTO> obtener(@PathVariable Long id);
