@@ -8,13 +8,16 @@ import org.example.msventa.dato.Cliente;
 import org.example.msventa.dato.Producto;
 import org.example.msventa.repository.VentaRepository;
 import org.example.msventa.service.VentaService;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 @Service
 public class VentaServiceImpl implements VentaService {
@@ -22,6 +25,7 @@ public class VentaServiceImpl implements VentaService {
     @Autowired private VentaRepository ventaRepository;
     @Autowired private ClienteFeign clienteFeign;
     @Autowired private ProductoFeign productoFeign;
+//    private static final Logger log = LoggerFactory.getLogger(VentaServiceImpl.class);
 
     @Override
     public List<Venta> listar() {
@@ -62,11 +66,35 @@ public class VentaServiceImpl implements VentaService {
     }
 
     @Override
+    public List<Venta> obtenerByCliente(Integer id) {
+//        List<Venta> venta = new ArrayList<>();
+        List<Venta> ventas = ventaRepository.getByClienteId(id);
+        if (ventas.isEmpty()) {
+            throw new DataIntegrityViolationException("No se encontraron ventas con ese el id "+id +" del cliente");
+        }
+        for (Venta venta : ventas) {
+            for (VentaDetalle detalle : venta.getDetalles()) {
+                Producto productoDto = productoFeign.obtenerPorId(detalle.getProductoId()).getBody();
+                detalle.setProducto(productoDto);
+            }
+        }
+        return ventas;
+    }
+
+    @Override
     public void marcarPagada(Integer id) {
         Venta v = ventaRepository.findByIdAndEstado(id, "SIN_PAGAR")
                 .orElseThrow(() -> new RuntimeException("Venta no encontrada o ya pagada"));
         v.setEstado("PAGADA");
         ventaRepository.save(v);
+
+        try {
+            clienteFeign.actualizarEstado(v.getClienteId().longValue());
+        } catch (Exception e) {
+            // Manejo de excepciones (registro, alertas, etc.)
+//            log.error("Error al actualizar el estado del cliente: ", e);
+        }
+
     }
 
     @Override

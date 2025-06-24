@@ -31,7 +31,7 @@ public class VentaController {
     public ResponseEntity<List<Venta>> listar() {
         return ResponseEntity.ok(ventaService.listar());
     }
-    @GetMapping("/pagadas/{clienteId}")
+        @GetMapping("/pagadas/{clienteId}")
     public ResponseEntity<List<Venta>> pagadas(@PathVariable Integer clienteId) {
         return ResponseEntity.ok(ventaService.pagadas(clienteId));
     }
@@ -81,6 +81,11 @@ public class VentaController {
     public ResponseEntity<Void> marcarPagada(@PathVariable Integer id) {
         ventaService.marcarPagada(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/clientes/{id}")
+    public ResponseEntity<List<Venta>> obtenerByCliente(@PathVariable Integer id) {
+        return ResponseEntity.ok(ventaService.obtenerByCliente(id));
     }
 
 }

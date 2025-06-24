@@ -17,5 +17,5 @@ public interface VentaService {
     List<Venta> pendientes(Integer clienteId);
     void marcarPagada(Integer id);
     List<Venta> pagadas(Integer clienteId);
-
+    List<Venta> obtenerByCliente(Integer id);
 }

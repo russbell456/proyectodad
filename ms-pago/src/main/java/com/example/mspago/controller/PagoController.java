@@ -23,7 +23,7 @@ public class PagoController {
         return ResponseEntity.ok(pagoService.ventasPendientes(clienteId));
     }
 
-    /** Registra un pago (multipart para comprobante opcional) */
+        /** Registra un pago (multipart para comprobante opcional) */
     @PostMapping(consumes = {"multipart/form-data"})
     public ResponseEntity<Pago> pagar(
             @RequestPart("data") PagoRequest request,
