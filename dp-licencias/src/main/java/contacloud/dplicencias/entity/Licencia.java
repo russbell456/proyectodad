@@ -21,7 +21,7 @@ public class Licencia {
     private Boolean estado;
     @Transient
     private ClienteDto clienteDto;
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<LicenciaDetalle> detalles;
 
     public Licencia() {

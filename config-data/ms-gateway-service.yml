@@ -56,5 +56,9 @@ spring:
           uri: lb://dp-licencias
           predicates:
             - Path=/licencias/**
+        - id: ms-pago-comprobantes
+          uri: lb://ms-pago-service
+          predicates:
+            - Path=/comprobantes/**
 
 

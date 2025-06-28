@@ -13,4 +13,5 @@ public interface PagoService {
     Pago registrar(PagoRequest request, MultipartFile comprobante);
 
     Pago obtener(Long id);
+
 }

@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.util.List;
 
 @Service
 public class LocalStorageServiceImpl implements StorageService {
@@ -20,9 +23,19 @@ public class LocalStorageServiceImpl implements StorageService {
             if (!Files.exists(root)) Files.createDirectories(root);
             Path destino = root.resolve(file.getOriginalFilename());
             Files.copy(file.getInputStream(), destino);
-            return destino.toString();              // Devuelves la URL o path
+            return "/comprobantes/" + file.getOriginalFilename();
         } catch (IOException e) {
             throw new RuntimeException("No se pudo guardar archivo", e);
+        }
+    }
+    public List<String> loadAll() {
+        try (Stream<Path> paths = Files.list(root)) {
+            return paths
+                    .filter(Files::isRegularFile)
+                    .map(p -> p.getFileName().toString())
+                    .collect(Collectors.toList());
+        } catch (IOException e) {
+            throw new RuntimeException("No se pudo listar los archivos", e);
         }
     }
 }

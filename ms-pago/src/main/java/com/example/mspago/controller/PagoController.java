@@ -4,6 +4,7 @@ import com.example.mspago.dto.PagoRequest;
 import com.example.mspago.entity.Pago;
 import com.example.mspago.service.PagoService;
 import com.example.mspago.dto.VentaDTO;
+import com.example.mspago.storage.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,11 +18,20 @@ public class PagoController {
 
     @Autowired private PagoService pagoService;
 
+    @Autowired
+    private StorageService storageService;
+
     /** Lista ventas SIN_PAGAR de un cliente */
     @GetMapping("/pendientes/{clienteId}")
     public ResponseEntity<List<VentaDTO>> pendientes(@PathVariable Long clienteId) {
         return ResponseEntity.ok(pagoService.ventasPendientes(clienteId));
     }
+    @GetMapping("/comprobantes")
+    public ResponseEntity<List<String>> listarComprobantes() {
+        List<String> archivos = storageService.loadAll();
+        return ResponseEntity.ok(archivos);
+    }
+
 
         /** Registra un pago (multipart para comprobante opcional) */
     @PostMapping(consumes = {"multipart/form-data"})

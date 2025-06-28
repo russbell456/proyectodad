@@ -17,6 +17,16 @@ public class Usuario {
     private String rol; // ADMIN, TRABAJADOR, CLIENTE
     private Boolean activo;
     private LocalDateTime fechaCreacion;
+    @Column(name = "cliente_id")
+    private Long clienteId;
+
+    public Long getClienteId() {
+        return clienteId;
+    }
+
+    public void setClienteId(Long clienteId) {
+        this.clienteId = clienteId;
+    }
 
     public Usuario() {}
 
