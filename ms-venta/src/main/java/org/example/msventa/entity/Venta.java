@@ -27,6 +27,8 @@ public class Venta {
     /**  SIN_PAGAR | PAGADA | FACTURADA  */
     @Column(nullable = false, columnDefinition = "VARCHAR(20) DEFAULT 'SIN_PAGAR'")
     private String estado;
+    @Column(nullable = true)
+    private String estadoLicencia;
 
     /* ---------- Campos auxiliares ---------- */
     @Transient
@@ -39,7 +41,14 @@ public class Venta {
     @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<VentaDetalle> detalles;
 
+    public String getEstadoLicencia() {
+        return estadoLicencia == null ? "SIN_NADA" : estadoLicencia;
 
+    }
+
+    public void setEstadoLicencia(String estadoLicencia) {
+        this.estadoLicencia = estadoLicencia;
+    }
 
     public Integer getId() {
         return id;

@@ -50,7 +50,7 @@ public class PdfGeneratorService {
             addCellHead(table, "Total", headFont);
 
             for (FacturaDetalleDTO it : factura.getItems()) {
-                table.addCell(it.getDescripcion());
+                table.addCell(it.getNombreProducto() + (it.getDescripcion() != null ? " - " + it.getDescripcion() : ""));
                 table.addCell(String.valueOf(it.getCantidad()));
                 table.addCell(String.format("%.2f", it.getPrecioUnitario()));
                 table.addCell(String.format("%.2f", it.getIgv()));
@@ -75,7 +75,7 @@ public class PdfGeneratorService {
     private void addCellHead(PdfPTable tbl, String txt, Font font) {
         PdfPCell cell = new PdfPCell(new Phrase(txt, font));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-        cell.setBackgroundColor(Color.BLUE.LIGHT_GRAY);
+        cell.setBackgroundColor(new Color(173, 216, 230));  // Light blue RGB
         tbl.addCell(cell);
     }
 }

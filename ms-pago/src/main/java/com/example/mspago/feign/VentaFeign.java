@@ -12,6 +12,9 @@ public interface VentaFeign {
     @GetMapping("/pendientes/{clienteId}")
     ResponseEntity<List<VentaDTO>> listarPendientes(@PathVariable Integer clienteId);
 
+    @PutMapping("/venta/{id}/licencia")
+    ResponseEntity<Void> actualizarEstadoLicencia(@PathVariable Long id, @RequestParam String estado);
+
 
     @GetMapping("/{id}")
     ResponseEntity<VentaDTO> obtener(@PathVariable Long id);

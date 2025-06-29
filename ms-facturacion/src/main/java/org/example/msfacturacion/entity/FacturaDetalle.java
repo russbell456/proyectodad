@@ -38,6 +38,7 @@ public class FacturaDetalle {
     private Double subtotal;
     private Double igv;
     private Double totalLinea;
+    private String nombreProducto;
     @Transient
     private LocalDate fechaVenta;
 
@@ -45,7 +46,21 @@ public class FacturaDetalle {
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
+    public String getNombreProducto() {
+        return nombreProducto;
+    }
 
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
+    }
+
+    public LocalDate getFechaVenta() {
+        return fechaVenta;
+    }
+
+    public void setFechaVenta(LocalDate fechaVenta) {
+        this.fechaVenta = fechaVenta;
+    }
 
     public Factura getFactura() { return factura; }
     public void setFactura(Factura factura) { this.factura = factura; }

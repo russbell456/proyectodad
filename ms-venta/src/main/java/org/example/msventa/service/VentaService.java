@@ -18,4 +18,6 @@ public interface VentaService {
     void marcarPagada(Integer id);
     List<Venta> pagadas(Integer clienteId);
     List<Venta> obtenerByCliente(Integer id);
+    List<Venta> pagadasConEstadosLicencia(Integer clienteId, List<String> estadosLicencia);
+
 }

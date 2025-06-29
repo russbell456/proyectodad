@@ -77,11 +77,29 @@ public class VentaController {
         });
         return ResponseEntity.noContent().build();
     }
+    @PutMapping("/venta/{id}/licencia")
+    public ResponseEntity<Void> actualizarEstadoLicencia(@PathVariable Integer id, @RequestParam String estado) {
+        Venta venta = ventaRepository.findById(id).orElseThrow(() -> new RuntimeException("Venta no encontrada"));
+        venta.setEstadoLicencia(estado);
+        ventaRepository.save(venta);
+        return ResponseEntity.ok().build();
+    }
+
     @PutMapping("/{id}/marcar-pagada")
     public ResponseEntity<Void> marcarPagada(@PathVariable Integer id) {
         ventaService.marcarPagada(id);
         return ResponseEntity.noContent().build();
     }
+    @GetMapping("/ventas/pagadas/licencia-estados")
+    public ResponseEntity<?> obtenerVentasConLicencias(@RequestParam(required = false) Integer clienteId) {
+        List<String> estados = List.of("PENDIENTE", "ACEPTADO", "RECHAZADO");
+        List<Venta> ventas = ventaService.pagadasConEstadosLicencia(clienteId, estados);
+        return ResponseEntity.ok(ventas);
+    }
+
+
+
+
 
     @GetMapping("/clientes/{id}")
     public ResponseEntity<List<Venta>> obtenerByCliente(@PathVariable Integer id) {

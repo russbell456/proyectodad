@@ -6,6 +6,7 @@ import org.example.msfacturacion.dato.*;
 import org.example.msfacturacion.entity.Factura;
 import org.example.msfacturacion.entity.FacturaDetalle;
 import org.example.msfacturacion.feign.ClienteFeign;
+import org.example.msfacturacion.feign.ProductoFeign;
 import org.example.msfacturacion.feign.VentaFeign;
 import org.example.msfacturacion.repository.FacturaRepository;
 import org.example.msfacturacion.service.FacturaService;
@@ -68,17 +69,20 @@ public class FacturaServiceImpl implements FacturaService {
 
         for (VentaDTO v : ventas) {
             for (DetalleVentaDTO dv : v.getDetalles()) {
+                ProductoDTO producto = productoFeign.obtener(dv.getProductoId());
+
                 FacturaDetalle fd = new FacturaDetalle();
                 fd.setVentaId(v.getId());
                 fd.setProductoId(dv.getProductoId());
-                fd.setDescripcion(dv.getDescripcion());
+                fd.setNombreProducto(producto.getNombre());  // nombre del producto desde ms-producto
+                fd.setDescripcion(producto.getDescripcion()); // descripción desde ms-producto
                 fd.setCantidad(dv.getCantidad());
                 fd.setUnidadMedida("UN");
                 fd.setPrecioUnitario(dv.getPrecioUnitario());
                 fd.setSubtotal(dv.getSubtotal());
                 fd.setIgv(dv.getSubtotal() * 0.18);
                 fd.setTotalLinea(dv.getSubtotal() * 1.18);
-                fd.setFactura(factura); // relación inversa
+                fd.setFactura(factura);
                 subTotal += dv.getSubtotal();
 
                 detalles.add(fd);
@@ -122,6 +126,7 @@ public class FacturaServiceImpl implements FacturaService {
 
         List<FacturaDetalleDTO> detalleDTOs = f.getDetalles().stream().map(d -> {
             FacturaDetalleDTO dd = new FacturaDetalleDTO();
+            dd.setNombreProducto(d.getNombreProducto());
             dd.setDescripcion(d.getDescripcion());
             dd.setCantidad(d.getCantidad());
             dd.setPrecioUnitario(d.getPrecioUnitario());
@@ -144,4 +149,6 @@ public class FacturaServiceImpl implements FacturaService {
     private String generarSerieCorrelativo() {
         return "F001-" + String.format("%08d", SEQ.getAndIncrement());
     }
+    private final ProductoFeign productoFeign;
+
 }

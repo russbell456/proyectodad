@@ -60,10 +60,39 @@ public class VentaServiceImpl implements VentaService {
         return ventaRepository.findByClienteIdAndEstado(clienteId, "SIN_PAGAR");
     }
 
+
     @Override
     public List<Venta> pagadas(Integer clienteId) {
-        return ventaRepository.findByClienteIdAndEstado(clienteId, "PAGADA");
+        List<Venta> ventas = ventaRepository.findByClienteIdAndEstado(clienteId, "PAGADA");
+        for (Venta venta : ventas) {
+            for (VentaDetalle detalle : venta.getDetalles()) {
+                Producto productoDto = productoFeign.obtenerPorId(detalle.getProductoId()).getBody();
+                detalle.setProducto(productoDto);
+            }
+        }
+        return ventas;
     }
+    @Override
+    public List<Venta> pagadasConEstadosLicencia(Integer clienteId, List<String> estadosLicencia) {
+        List<Venta> ventas;
+
+        if (clienteId != null) {
+            ventas = ventaRepository.findByClienteIdAndEstadoAndEstadoLicenciaIn(clienteId, "PAGADA", estadosLicencia);
+        } else {
+            ventas = ventaRepository.findByEstadoAndEstadoLicenciaIn("PAGADA", estadosLicencia);
+        }
+
+        for (Venta venta : ventas) {
+            for (VentaDetalle detalle : venta.getDetalles()) {
+                Producto productoDto = productoFeign.obtenerPorId(detalle.getProductoId()).getBody();
+                detalle.setProducto(productoDto);
+            }
+        }
+
+        return ventas;
+    }
+
+
 
     @Override
     public List<Venta> obtenerByCliente(Integer id) {
@@ -114,6 +143,9 @@ public class VentaServiceImpl implements VentaService {
         // 3. si la venta la crea un trabajador → debe traer trabajadorId
         if ("TRABAJADOR".equalsIgnoreCase(venta.getOrigen()) && venta.getTrabajadorId() == null) {
             throw new RuntimeException("Se requiere trabajadorId para ventas de origen TRABAJADOR");
+        }
+        if (venta.getEstadoLicencia() == null) {
+            venta.setEstadoLicencia("NO_APLICA");
         }
 
         // 4. estado inicial → SIN_PAGAR

@@ -24,6 +24,20 @@ public class PagoServiceImpl implements PagoService {
     public List<VentaDTO> ventasPendientes(Long clienteId) {
         return ventaFeign.listarPendientes(clienteId.intValue()).getBody();
     }
+    @Override
+    public String obtenerNombreComprobantePorPagoId(Long pagoId) {
+        Pago pago = pagoRepository.findById(pagoId)
+                .orElseThrow(() -> new RuntimeException("Pago no encontrado con ID: " + pagoId));
+        String url = pago.getComprobanteUrl();
+        if (url == null || url.isEmpty()) {
+            throw new RuntimeException("El pago no tiene comprobante");
+        }
+
+        // Extraer solo el nombre del archivo, asumiendo que la URL es tipo "/comprobantes/archivo.ext"
+        // o puede ser el nombre directamente
+        String nombreArchivo = url.contains("/") ? url.substring(url.lastIndexOf("/") + 1) : url;
+        return nombreArchivo;
+    }
 
     @Override
     public Pago registrar(PagoRequest r, MultipartFile archivo) {
@@ -57,7 +71,9 @@ public class PagoServiceImpl implements PagoService {
         pago.setFechaPago(LocalDateTime.now());
         pago.setComprobanteUrl(url);
         pagoRepository.save(pago);
-
+        if ("TRANSFERENCIA".equalsIgnoreCase(pago.getMetodo())) {
+            ventaFeign.actualizarEstadoLicencia(venta.getId(), "PENDIENTE");
+        }
         /* 5. Descontar stock de cada producto */
         for (DetalleVentaDTO d : venta.getDetalles()) {
             ProductoDTO prod = productoFeign.obtenerPorId(d.getProductoId()).getBody();

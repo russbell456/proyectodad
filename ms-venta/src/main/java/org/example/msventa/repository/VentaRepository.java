@@ -18,5 +18,9 @@ public interface VentaRepository extends JpaRepository<Venta, Integer> {
     Optional<Venta> findByIdAndEstado(Integer id, String estado);
 
     List<Venta> getByClienteId(Integer clienteId);
+    List<Venta> findByClienteIdAndEstadoAndEstadoLicenciaIn(Integer clienteId, String estado, List<String> estadoLicencia);
+
+    List<Venta> findByEstadoAndEstadoLicenciaIn(String estado, List<String> estadoLicencia);
+
 
 }

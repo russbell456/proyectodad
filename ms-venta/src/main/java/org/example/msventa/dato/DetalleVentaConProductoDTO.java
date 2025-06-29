@@ -1,25 +1,19 @@
-package org.example.msfacturacion.dato;
+package org.example.msventa.dato;
 
-import lombok.Data;
-
-@Data
-public class FacturaDetalleDTO {
+public class DetalleVentaConProductoDTO {
+    private Integer productoId;
     private String nombreProducto;
-    private String descripcion;
+    private String descripcionProducto;
     private Integer cantidad;
     private Double precioUnitario;
     private Double subtotal;
-    private Double igv;
-    private Double totalLinea;
-    private Long ventaId;
 
-
-    public Long getVentaId() {
-        return ventaId;
+    public Integer getProductoId() {
+        return productoId;
     }
 
-    public void setVentaId(Long ventaId) {
-        this.ventaId = ventaId;
+    public void setProductoId(Integer productoId) {
+        this.productoId = productoId;
     }
 
     public String getNombreProducto() {
@@ -30,12 +24,12 @@ public class FacturaDetalleDTO {
         this.nombreProducto = nombreProducto;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescripcionProducto() {
+        return descripcionProducto;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripcionProducto(String descripcionProducto) {
+        this.descripcionProducto = descripcionProducto;
     }
 
     public Integer getCantidad() {
@@ -60,21 +54,5 @@ public class FacturaDetalleDTO {
 
     public void setSubtotal(Double subtotal) {
         this.subtotal = subtotal;
-    }
-
-    public Double getIgv() {
-        return igv;
-    }
-
-    public void setIgv(Double igv) {
-        this.igv = igv;
-    }
-
-    public Double getTotalLinea() {
-        return totalLinea;
-    }
-
-    public void setTotalLinea(Double totalLinea) {
-        this.totalLinea = totalLinea;
     }
 }

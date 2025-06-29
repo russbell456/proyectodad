@@ -11,6 +11,15 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+
+import java.net.MalformedURLException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @RestController
 @RequestMapping("/pagos")
@@ -26,6 +35,46 @@ public class PagoController {
     public ResponseEntity<List<VentaDTO>> pendientes(@PathVariable Long clienteId) {
         return ResponseEntity.ok(pagoService.ventasPendientes(clienteId));
     }
+    @GetMapping("/{id}/comprobante-imagen")
+    public ResponseEntity<Resource> obtenerComprobanteImagen(@PathVariable Long id) {
+        try {
+            // Obtener nombre del archivo comprobante
+            String nombreArchivo = pagoService.obtenerNombreComprobantePorPagoId(id);
+            if (nombreArchivo == null || nombreArchivo.isEmpty()) {
+                return ResponseEntity.notFound().build();
+            }
+
+            // Ruta completa al archivo en disco (igual a WebConfig)
+            Path rutaArchivo = Paths.get("E:/oficial examen dad 2025/proyectodad/ms-pago/comprobantes")
+                    .resolve(nombreArchivo)
+                    .normalize();
+
+            Resource recurso = new UrlResource(rutaArchivo.toUri());
+            if (!recurso.exists()) {
+                return ResponseEntity.notFound().build();
+            }
+
+            // Definir content type según extensión del archivo
+            String contentType = "application/octet-stream";
+            if (nombreArchivo.toLowerCase().endsWith(".png")) contentType = "image/png";
+            else if (nombreArchivo.toLowerCase().endsWith(".jpg") || nombreArchivo.toLowerCase().endsWith(".jpeg"))
+                contentType = "image/jpeg";
+
+            return ResponseEntity.ok()
+                    .contentType(MediaType.parseMediaType(contentType))
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + recurso.getFilename() + "\"")
+                    .body(recurso);
+
+        } catch (MalformedURLException e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+    @GetMapping("/{id}/comprobante")
+    public ResponseEntity<String> obtenerNombreComprobante(@PathVariable Long id) {
+        String nombreArchivo = pagoService.obtenerNombreComprobantePorPagoId(id);
+        return ResponseEntity.ok(nombreArchivo);
+    }
+
     @GetMapping("/comprobantes")
     public ResponseEntity<List<String>> listarComprobantes() {
         List<String> archivos = storageService.loadAll();
