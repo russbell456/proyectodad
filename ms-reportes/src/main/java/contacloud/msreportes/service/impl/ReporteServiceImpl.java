@@ -1,7 +1,5 @@
 package contacloud.msreportes.service.impl;
 
-import com.example.msreportes.feign.*;
-import com.example.msreportes.model.*;
 import contacloud.msreportes.feign.LicenciaFeign;
 import contacloud.msreportes.feign.PagoFeign;
 import contacloud.msreportes.feign.ProductoFeign;

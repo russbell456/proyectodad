@@ -60,5 +60,9 @@ spring:
           uri: lb://ms-pago-service
           predicates:
             - Path=/comprobantes/**
+        - id: ms-reportes
+          uri: lb://ms-reportes
+          predicates:
+            - Path=/reportes/**
 
 

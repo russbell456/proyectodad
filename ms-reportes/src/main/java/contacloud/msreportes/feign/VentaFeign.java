@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "ms-venta-service", path = "/ventas")
+@FeignClient(name = "venta-service")
 public interface VentaFeign {
     @GetMapping
     ResponseEntity<List<VentaDTO>> listarVentas();

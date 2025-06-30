@@ -21,6 +21,7 @@
     <properties>
         <java.version>17</java.version> <!-- o la versión que uses -->
         <spring-cloud.version>2022.0.4</spring-cloud.version>
+        <maven.compiler.source>20</maven.compiler.source>
     </properties>
 
     <!-- BOM para versiones consistentes de Spring Cloud -->
